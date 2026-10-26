@@ -1,4 +1,5 @@
 import nodemailer from 'nodemailer';
+import { keepAlive } from "./keepAlive.js";
 
 const { SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, MAIL_FROM, NOTIFY_EMAIL } = process.env;
 const transport = SMTP_HOST
@@ -15,8 +16,21 @@ export const lagosTime = (iso) => `${new Date(iso).toLocaleString('en-NG', { tim
 
 // Fire-and-forget: email problems must never break a saved record.
 function fire(jobs) {
-  Promise.allSettled(jobs.map(([to, s, t]) => (mailConfigured && to ? sendMail(to, s, t) : Promise.reject(new Error(`mail skipped (SMTP not configured): ${s}`)))))
-    .then((r) => r.forEach((x) => x.status === 'rejected' && console.log(x.reason?.message)));
+  keepAlive(
+    Promise.allSettled(
+      jobs.map(([to, s, t]) =>
+        mailConfigured && to
+          ? sendMail(to, s, t)
+          : Promise.reject(
+              new Error(`mail skipped (SMTP not configured): ${s}`),
+            ),
+      ),
+    ).then((r) =>
+      r.forEach(
+        (x) => x.status === "rejected" && console.log(x.reason?.message),
+      ),
+    ),
+  );
 }
 
 export function notifyNewEnquiry(e) {
