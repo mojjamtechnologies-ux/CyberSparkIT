@@ -39,3 +39,4 @@ Supabase project and keys, SMTP credentials (emails are skipped and logged until
 **Working in code:** public site, enquiry and consultation workflows, quotations, training, content management, admin with roles, CSV export, retention script, tests, deployment config.
 **Needs your credentials or content:** Supabase project and SQL, Render and Vercel accounts, domain DNS, SMTP, official logo, real portfolio/testimonials/stats/courses, legal review, optional n8n/AI/CRM/WhatsApp accounts.
 # CyberSparkIT
+# CyberSparkIT
