@@ -3,6 +3,7 @@ import { Link, NavLink, Outlet, useLocation } from 'react-router-dom';
 import { Menu, X, Phone, Mail, MapPin } from 'lucide-react';
 import Logo from './Logo';
 import PageLoader from './PageLoader';
+import ThemeToggle from './ThemeToggle';
 import { NAV, SITE } from '../lib/site';
 import { telOf, useSite } from '../lib/useSite';
 
@@ -24,7 +25,10 @@ export default function Layout() {
             {NAV.map((n) => <NavLink key={n.to} to={n.to} end={n.to === '/'}>{n.label}</NavLink>)}
             <Link className="btn btn-primary nav-cta" to="/contact?intent=consultation">Get a Free Consultation</Link>
           </nav>
-          <button className="burger" aria-expanded={open} aria-label="Toggle menu" onClick={() => setOpen(!open)}>{open ? <X /> : <Menu />}</button>
+          <div className="bar-actions">
+            <ThemeToggle />
+            <button className="burger" aria-expanded={open} aria-label="Toggle menu" onClick={() => setOpen(!open)}>{open ? <X /> : <Menu />}</button>
+          </div>
         </div>
       </header>
       <main id="main"><Outlet /></main>

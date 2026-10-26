@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Navigate, NavLink, Outlet } from 'react-router-dom';
 import { LogOut } from 'lucide-react';
 import Logo from '../components/Logo';
+import ThemeToggle from '../components/ThemeToggle';
 import { AuthProvider, useAuth } from './auth';
 import './admin.css';
 
@@ -34,6 +35,7 @@ export function AdminShell() {
           <NavLink to="/admin/settings">Settings</NavLink>
         </nav>
         <div className="adm-user"><span>{user.name || user.email} ({user.role})</span>
+          <ThemeToggle />
           <button className="btn btn-outline" onClick={logout}><LogOut size={16} /> Log out</button></div>
       </header>
       <main className="adm-main"><Outlet /></main>
