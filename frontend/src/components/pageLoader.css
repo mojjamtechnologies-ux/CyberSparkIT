@@ -1,43 +1,7 @@
-.page-loader {
-  position: fixed;
-  inset: 0;
-  z-index: 200;
-  background: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  pointer-events: none;
-  animation: pl-out 0.25s ease 0.65s forwards;
-}
-.page-loader img {
-  width: 150px;
-  height: 150px;
-  animation: pl-rise 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) both;
-}
-@keyframes pl-rise {
-  from {
-    clip-path: inset(100% 0 0 0);
-    transform: translateY(24px);
-    opacity: 0.4;
-  }
-  to {
-    clip-path: inset(0 0 0 0);
-    transform: none;
-    opacity: 1;
-  }
-}
-@keyframes pl-out {
-  to {
-    opacity: 0;
-    visibility: hidden;
-  }
-}
-.logo-img {
-  border-radius: 50%;
-  flex: none;
-}
-@media (prefers-reduced-motion: reduce) {
-  .page-loader {
-    display: none;
-  }
-}
+/* The screen fades out during the last .25s of --hold (set in PageLoader.tsx). */
+.page-loader{position:fixed;inset:0;z-index:200;background:#fff;display:flex;align-items:center;justify-content:center;pointer-events:none;animation:pl-out .25s ease calc(var(--hold, 3000ms) - .25s) forwards}
+.page-loader img{width:96px;height:96px;animation:pl-rise .8s cubic-bezier(.2,.7,.2,1) both}
+@keyframes pl-rise{from{clip-path:inset(100% 0 0 0);transform:translateY(24px);opacity:.4}to{clip-path:inset(0 0 0 0);transform:none;opacity:1}}
+@keyframes pl-out{to{opacity:0;visibility:hidden}}
+.logo-img{border-radius:50%;flex:none}
+@media (prefers-reduced-motion:reduce){.page-loader{display:none}}
