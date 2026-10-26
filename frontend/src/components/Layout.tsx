@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom';
 import { Menu, X, Phone, Mail, MapPin } from 'lucide-react';
 import Logo from './Logo';
+import PageLoader from './PageLoader';
 import { NAV, SITE } from '../lib/site';
 import { telOf, useSite } from '../lib/useSite';
 
@@ -13,6 +14,7 @@ export default function Layout() {
   useEffect(() => { setOpen(false); window.scrollTo(0, 0); }, [pathname]);
   return (
     <>
+      <PageLoader />
       <a href="#main" className="skip">Skip to content</a>
       {ann && <div className="announce" role="note">{ann.link_url ? <a href={ann.link_url} target="_blank" rel="noopener noreferrer">{ann.message}</a> : ann.message}</div>}
       <header className="header">
