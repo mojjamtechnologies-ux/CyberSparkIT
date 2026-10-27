@@ -1,8 +1,9 @@
-/* The screen fades out during the last .25s of --hold (set in PageLoader.tsx). */
-.page-loader{position:fixed;inset:0;z-index:200;background:#fff;display:flex;align-items:center;justify-content:center;pointer-events:none;animation:pl-out .25s ease calc(var(--hold, 3000ms) - .25s) forwards}
-.page-loader img{width:96px;height:96px;animation:pl-rise .8s cubic-bezier(.2,.7,.2,1) both}
-@keyframes pl-rise{from{clip-path:inset(100% 0 0 0);transform:translateY(24px);opacity:.4}to{clip-path:inset(0 0 0 0);transform:none;opacity:1}}
+/* The logo is revealed from the bottom edge upwards over --reveal; the screen then fades out over --fade.
+   Both values are set in PageLoader.tsx. */
+.page-loader{position:fixed;inset:0;z-index:200;background:#fff;display:flex;align-items:center;justify-content:center;pointer-events:none;animation:pl-out var(--fade, 300ms) ease var(--reveal, 3000ms) forwards}
+.page-loader img{width:112px;height:112px;animation:pl-rise var(--reveal, 3000ms) cubic-bezier(.4,0,.2,1) both}
+@keyframes pl-rise{from{clip-path:inset(100% 0 0 0)}to{clip-path:inset(0 0 0 0)}}
 @keyframes pl-out{to{opacity:0;visibility:hidden}}
 .logo-img{border-radius:50%;flex:none}
-/* Devices set to "reduce motion" still see the logo for the full time, just without movement. */
+/* Devices set to "reduce motion" still see the logo for the same time, just without movement. */
 @media (prefers-reduced-motion:reduce){.page-loader,.page-loader img{animation:none}}
