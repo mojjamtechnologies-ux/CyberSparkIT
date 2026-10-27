@@ -4,4 +4,5 @@
 @keyframes pl-rise{from{clip-path:inset(100% 0 0 0);transform:translateY(24px);opacity:.4}to{clip-path:inset(0 0 0 0);transform:none;opacity:1}}
 @keyframes pl-out{to{opacity:0;visibility:hidden}}
 .logo-img{border-radius:50%;flex:none}
-@media (prefers-reduced-motion:reduce){.page-loader{display:none}}
+/* Devices set to "reduce motion" still see the logo for the full time, just without movement. */
+@media (prefers-reduced-motion:reduce){.page-loader,.page-loader img{animation:none}}
