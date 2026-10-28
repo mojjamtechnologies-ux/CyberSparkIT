@@ -1,11 +1,4 @@
 .adm{min-height:100vh;background:var(--bg)}
-.adm-top{display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.5rem;background:#fff;padding:.7rem 1rem;box-shadow:0 1px 0 var(--line);position:sticky;top:0;z-index:20}
-.adm-top nav{display:flex;gap:.3rem;flex:1;flex-wrap:wrap}
-.adm-top nav a{padding:.5rem .9rem;border-radius:10px;text-decoration:none;color:var(--navy);font-weight:500}
-.adm-top nav a.active{background:#EAF1FF;color:var(--blue)}
-.adm-user{display:flex;align-items:center;gap:.8rem;font-size:.85rem;color:var(--muted)}
-.adm-user .btn{padding:.4rem .9rem;font-size:.85rem}
-.adm-main{width:min(1160px,100% - 2rem);margin:1.5rem auto 4rem}
 .login-wrap{display:flex;align-items:center;justify-content:center;padding:1rem}
 .login{width:min(420px,100%);gap:1rem}
 .stat strong{font-size:2rem;color:var(--blue);line-height:1}.stat span{color:var(--muted);font-size:.9rem}
@@ -28,8 +21,36 @@
 .msg{white-space:pre-wrap;background:var(--bg);padding:1rem;border-radius:12px;color:var(--text)!important}
 .log{list-style:none;padding:0;margin:1rem 0 0}.log li{border-top:1px solid var(--line);padding:.7rem 0}.log p{margin:.2rem 0 0;white-space:pre-wrap;color:var(--text)}
 
-.adm-top nav a{padding:.4rem .7rem;font-size:.85rem}
 .qrow{display:grid;grid-template-columns:1fr 90px 140px 44px;gap:.5rem}
 .quote-form input,.quote-form textarea{font:400 .95rem Poppins,sans-serif;padding:.55rem .7rem;border:1.5px solid #B8C4DB;border-radius:12px;width:100%}
 .quote{border-top:1px solid var(--line);padding-top:.8rem;margin-top:.8rem}
 .days{border:0;padding:0;display:flex;flex-wrap:wrap;gap:.2rem .9rem}.days legend{font-weight:500;font-size:.88rem;margin-bottom:.3rem}
+
+/* ---- Admin navigation: top bar + slide-out menu below 1024px, fixed sidebar from 1024px ---- */
+.adm-bar{position:sticky;top:0;z-index:40;display:flex;align-items:center;gap:.6rem;background:#fff;padding:.5rem .8rem;box-shadow:0 1px 0 var(--line)}
+.adm-bar-logo{flex:1;min-width:0;display:flex;text-decoration:none}
+.adm-burger{width:40px;height:40px;border-radius:12px;border:1px solid var(--line);background:transparent;color:var(--ink,#061A45);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;flex:none}
+.adm-backdrop{position:fixed;inset:0;background:rgba(6,26,69,.55);z-index:44}
+.adm-side{position:fixed;top:0;bottom:0;left:0;width:min(300px,86vw);z-index:45;background:#fff;display:flex;flex-direction:column;overflow-y:auto;overscroll-behavior:contain;box-shadow:8px 0 30px rgba(6,26,69,.25);visibility:hidden;transform:translateX(-100%);transition:transform .25s ease,visibility 0s linear .25s}
+.adm-side.open{visibility:visible;transform:none;transition:transform .25s ease}
+.adm-side-logo{display:flex;padding:1rem 1rem .4rem;text-decoration:none}
+.adm-side nav{flex:1;padding:.2rem .7rem 1rem}
+.adm-group-label{margin:1rem .6rem .3rem;font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.adm-link{display:flex;align-items:center;gap:.65rem;padding:.6rem .8rem;border-radius:10px;color:var(--ink,#061A45);text-decoration:none;font-weight:500;font-size:.92rem}
+.adm-link:hover{background:#F0F4FB}
+.adm-link.active{background:#EAF1FF;color:var(--link,#0645B8)}
+.adm-link svg{flex:none}
+.adm-side-foot{border-top:1px solid var(--line);padding:.9rem 1rem;display:flex;flex-direction:column;gap:.7rem}
+.adm-who{margin:0;font-size:.85rem;color:var(--text);overflow-wrap:anywhere}.adm-who small{display:block;color:var(--muted);text-transform:capitalize}
+.adm-foot-actions{display:flex;align-items:center;gap:.6rem}
+.adm-foot-actions .btn{padding:.4rem .9rem;font-size:.85rem}
+.adm-main{width:min(1160px,100% - 1.5rem);margin:1rem auto 3rem}
+@media(min-width:1024px){
+  .adm-side{width:260px;visibility:visible;transform:none;transition:none;box-shadow:1px 0 0 var(--line)}
+  .adm-content{margin-left:260px}
+  .adm-main{width:min(1160px,100% - 3rem);margin:1.5rem auto 4rem}
+}
+@media(max-width:600px){
+  .qrow{grid-template-columns:1fr 1fr 44px}.qrow>:first-child{grid-column:1/-1}
+  .dl{grid-template-columns:90px 1fr}
+}

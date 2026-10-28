@@ -6,8 +6,7 @@ html[data-theme=dark]{color-scheme:dark;--ink:#EAF0FF;--link:#7DB2FF;--bg:#0F1A3
 .bar-actions{display:flex;align-items:center;gap:.3rem}
 .theme-toggle{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;transition:background .15s}
 .theme-toggle:hover{background:rgba(125,178,255,.16)}
-.adm-user .theme-toggle{width:36px;height:36px}
-@media (prefers-reduced-motion:no-preference){body,.header,.card,.nav,.adm-top,.tbl-wrap{transition:background-color .2s,color .2s,border-color .2s}}
+@media (prefers-reduced-motion:no-preference){body,.header,.card,.nav,.adm-bar,.adm-side,.tbl-wrap{transition:background-color .2s,color .2s,border-color .2s}}
 
 /* Dark overrides */
 :where(html[data-theme=dark]) body{background:var(--page)}
@@ -38,9 +37,6 @@ html[data-theme=dark]{color-scheme:dark;--ink:#EAF0FF;--link:#7DB2FF;--bg:#0F1A3
 :where(html[data-theme=dark]) .modal{background:var(--surface);color:var(--text)}
 :where(html[data-theme=dark]) .modal-x{background:var(--bg);color:var(--ink)}
 :where(html[data-theme=dark]) .page-loader{background:var(--page)}
-:where(html[data-theme=dark]) .adm-top{background:var(--surface)}
-:where(html[data-theme=dark]) .adm-top nav a{color:var(--ink)}
-:where(html[data-theme=dark]) .adm-top nav a.active{background:rgba(125,178,255,.16);color:var(--link)}
 :where(html[data-theme=dark]) .tbl-wrap{background:var(--surface)}
 :where(html[data-theme=dark]) .tbl th{background:#1B2B4F;color:var(--ink)}
 :where(html[data-theme=dark]) .pill{background:rgba(125,178,255,.16);color:#A8C9FF}
@@ -49,3 +45,9 @@ html[data-theme=dark]{color-scheme:dark;--ink:#EAF0FF;--link:#7DB2FF;--bg:#0F1A3
 :where(html[data-theme=dark]) .pill.closed{background:rgba(148,163,184,.16);color:#CBD5E1}
 :where(html[data-theme=dark]) .pill.in_progress{background:rgba(56,189,248,.16);color:#7DD3FC}
 :where(html[data-theme=dark]) .pill.quotation_sent{background:rgba(167,139,250,.18);color:#C4B5FD}
+
+:where(html[data-theme=dark]) .adm-bar,:where(html[data-theme=dark]) .adm-side{background:var(--surface)}
+:where(html[data-theme=dark]) .adm-burger{color:var(--ink)}
+:where(html[data-theme=dark]) .adm-side{box-shadow:8px 0 30px rgba(0,0,0,.5)}
+:where(html[data-theme=dark]) .adm-link:hover{background:rgba(125,178,255,.12)}
+:where(html[data-theme=dark]) .adm-link.active{background:rgba(125,178,255,.16);color:var(--link)}
