@@ -19,7 +19,7 @@ const WHY = [
 ] as const;
 
 export default function Home() {
-  usePageMeta('', 'We build websites, mobile applications, custom business utility apps and AI-powered automations that help small businesses save time, serve customers better and grow faster.');
+  usePageMeta('', 'We build websites, mobile applications, custom business utility apps and AI-powered automations that help businesses save time, serve customers better and grow faster.');
   const { services, loading, error, retry } = useServices();
   const stats = useSite().stats;
   const testimonials = useApi<Testimonial[]>('/testimonials').data ?? [];
@@ -29,9 +29,9 @@ export default function Home() {
       <section className="hero">
         <div className="container hero-grid">
           <div>
-            <p className="eyebrow">{`Empowering Small Businesses With Smart Tech`}</p>
+            <p className="eyebrow">{`Empowering Businesses With Smart Tech`}</p>
             <h1>Smart Technology Solutions for Growing Businesses.</h1>
-            <p className="lead">We build websites, mobile applications, custom business utility apps, and AI-powered automations that help small businesses save time, serve customers better, and grow faster.</p>
+            <p className="lead">We build websites, mobile applications, custom business utility apps, and AI-powered automations that help businesses save time, serve customers better, and grow faster.</p>
             <div className="btns">
               <Link className="btn btn-primary" to="/services">Explore Our Services</Link>
               <Link className="btn btn-ghost" to="/contact?intent=consultation">Get a Free Consultation</Link>
@@ -71,7 +71,7 @@ export default function Home() {
 
       <section className="section alt">
         <div className="container">
-          <h2 className="h2">Custom Utility Apps &amp; Digital Solutions We Build for Small Businesses</h2>
+          <h2 className="h2">Custom Utility Apps &amp; Digital Solutions We Build for Businesses</h2>
           <p className="sub">These are solutions we design, build and customise for your business, not necessarily ready-made products.</p>
           <UtilityGrid />
         </div>
